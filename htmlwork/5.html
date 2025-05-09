@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="head-menu"><!-- bar, pay, 네이버톡, 알림, 장바구니 -->
+            <ul>
+                <li><i class="fa-solid fa-bars"></i></li>
+                <li><a href="#">pay</a></li>
+            </ul>
+            
+            <ul>
+                <li><i class="fa-regular fa-comment"></i></li>
+                <li><i class="fa-solid fa-bell"></i></li>
+                <li><i class="fa-solid fa-bag-shopping"></i></li>
+            </ul>
+        </div>
+        <div class="search"> 
+             <!--검색-->
+            <span>NAVER</span>
+            <input type="text" placeholder="검색어를 입력하세요">
+            <button>검색</button>
+        </div>
+    </header>
+    <nav>
+        <!-- ul, li 태그를 이용하여 다음 내용을 리스트로 만들어 볼것
+        메일, 카페, 블로그... -->
+        <ul class="nav-list">
+            <li class="icon-with-label"><i class="fa-regular fa-envelope"></i><span>메일</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-mug-saucer"></i><span>카페</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-blog"></i><span>블로그</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-store"></i><span>스토어</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-newspaper"></i><span>뉴스</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-coins"></i><span>증권</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-house"></i><span>부동산</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-map-location-dot"></i><span>지도</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-book"></i><span>웹툰</span></li>
+            <li class="icon-with-label"><i class="fa-solid fa-bolt"></i><span>치지직</span></li>
+        </ul>
+    </nav>
+    <style>
+        .search{
+            color:greenyellow;
+            font-size: 50px;
+            font-weight: bold;
+            text-align:center;
+        }
+        ul{
+            list-style-type: none;
+        }
+        li{
+            display: flex;
+        }
+        a{
+            text-decoration: none;
+            border:3px solid black;
+            border-radius: 100%;
+            padding: 2px;
+            display:inline-block;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+        }
+        a:visited{
+            color:black;
+        }
+        a:active{
+            color:black;
+        }
+        
+        .head-menu{
+            display: flex;
+        }
+        
+        .head-menu ul{
+            display:  flex;
+            list-style-type: none;
+        }
+        
+        .head-menu{
+            justify-content: space-between;
+        }
+        
+        .head-menu ul li{
+            margin: 20px;
+            font-size: 30px;
+        }
+        
+        .head-menu ul li a{
+            font-size: 20px;
+        }
+
+        .nav-list{
+            display: flex; 
+        }
+
+        .icon-with-label{
+        display:flex;
+        flex-direction: column;
+        font-size: 24px;
+        margin: 20px;
+        text-align: center;
+        }
+        .icon-with-label i{
+        font: size 24px;
+        
+        }
+
+
+
+        .search-bar-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      width: 600px;
+      border: 2px solid #03c75a;
+      border-radius: 30px;
+      background-color: white;
+      overflow: hidden;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-bar button {
+      background-color: #03c75a;
+      border: none;
+      color: white;
+      padding: 0 24px;
+      font-size: 16px;
+      height: 100%;
+      cursor: pointer;
+    }
+        
+    </style>
+</body>
+</html>
