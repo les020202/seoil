@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexlayouy.html</title>
+    <style>
+        nav{
+            border:1px solid red;
+            /* text-align: center; */
+        }
+        ul{
+            border:1px solid green;
+            display: flex; /* li 4개가 한줄에 나열됨 */
+            list-style-type: none; /* 점표시 없어짐 */
+            padding: 0;
+            
+            /* row : 한줄에 다표시, row-reverse : 오른쪽 끝에 반대순서로 한줄에 표시, column : 하나의 한줄씩 표시*/
+            /* flex-direction:column; */
+            /*flex-direction:row;*/
+            
+            /*justify-content: center;*/   /*center : content 자체를 중앙으로, space-between : 하나씩 띄어서*/ 
+            
+            /* flex-wrap: wrap;  */ /* 크기에 맞춰서 올라가던가 내려가던가 함 */
+            
+        }
+        li{
+            width: 200px;
+            border:1px solid black;
+        }
+
+        /* and 이후 ()전에 띄어쓰기 주의 */
+        @media screen and (max-width:600px){ /* 600px보다 작아지면 */
+            ul{
+                flex-direction:column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+        </ul>
+    </nav>
+</body>
+</html>
