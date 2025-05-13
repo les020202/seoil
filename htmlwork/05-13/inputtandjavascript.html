@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        input tag의 name은 값을 전달할 때 변수 역할
+        id는 태그를 구별하기 위한 속성이다.
+    </pre>
+
+    <form action="test.html">
+    <input type="text" id="name" value="">
+    <button>태그버튼</button>
+    <input type="button" value="input버튼" onclick="test()">   <!-- on은 ~할때 이벤트, 자바 스크립트 구문이 들어가야함-->
+    </form>
+
+    <script>
+        var n=document.getElementById("name");  /*Id에 의해서 객체를 들고옴*/
+        function test(){
+            // n.value="홍길동"   //id가 name인 객체의 value를 홍길동으로 변경
+            // alert(n.value)
+            // alert(decument.getElementById("name").value)
+            n.style.backgroundColor="yellow"   //input버튼 누르면 텍스트 노란색으로 변함
+        }
+    </script>
+    <!-- <div style="width: 100px;height: 100px;background-color: red;" onmouseover="alert('마우스올라감')"> -->
+    </div>
+</body>
+</html>
