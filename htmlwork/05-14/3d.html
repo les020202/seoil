@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        a{
+            text-decoration: none;
+            color: green;
+            font-size: 20px;
+        }
+        .title{
+            justify-content: center;
+            display: flex;
+            width: 20%;
+        }
+        .box input{
+            border: 1px solid black;
+            width: 20%;
+            justify-content: center;
+            /* align-items: center; */
+            display: flex;
+            flex-wrap: wrap;
+        }
+        button{
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            width: 20%;
+        }
+        .box input:nth-child(1){
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .box input:nth-child(2){
+            border-top:none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .box:hover{
+            transform: rotate(360deg);
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="title">
+        <a href="#">NAVER</a>
+    </div>
+    <div class="box input">
+        <input type="text" name="id" id="id" placeholder="아이디 또는 전화번호">
+        <input type="text" name="pwd" id="pwd" placeholder="비밀번호">
+        <input type="checkbox" name="login" id="login">로그인상태유지   
+        <button>로그인</button>
+    </div>
+    
+    
+</body>
+</html>
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .box{
+            border:2px solid rgba(197, 193, 193,0.5);
+            border-radius: 10px;
+            height:300px;
+            padding:20px;
+            display: inline-block;
+            white-space: normal; /* 중요 */
+            transition: transform 3s;
+        }
+        .loginform{
+            display:flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin:0;padding:0;
+            font-size: 0;
+        }
+
+        .loginform input{
+            width: 100%;
+            margin:0;padding:20px;
+            border:1px solid gainsboro;            
+        }
+        .loginform input:nth-child(1){
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .loginform input:nth-child(2){
+            border-top:none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .opt{
+            display: flex;
+            justify-content: space-between;
+        }
+        .login_btn{
+            display: flex;
+        }
+        .login_btn input{
+            width: 100%;
+            border-radius: 5px;
+            background-color: grey;
+            padding:20px;
+            font-size: 20px;
+            color:white;
+            border:none;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box" class="box">
+        <div class="loginform">
+            <input type="text" name="id" id="id" placeholder="아이디 또는 전화번호">
+            <input type="password" name="id" id="id" placeholder="비밀번호">
+       </div>
+       <div class="opt">
+        <div>
+        <input type="checkbox" checked style="border-radius: 50px;">
+        <span>로그인 상태 유지</span>
+        </div>
+        <div>
+        <span>IP보안</span>
+        <input type="button" value="ON">
+       </div>
+        </div>
+       <div class="login_btn">
+        <input type="button" value="로그인">
+       </div>
+    </div>
+
+    <script>
+        const box = document.querySelector("#box");
+      
+        box.addEventListener("click", () => {
+          box.style.transform = "rotateY(0deg)";
+          void box.offsetWidth; 
+          box.style.transform = "rotateY(360deg)";
+        });
+      </script>
+</body>
+</html>
+
+ -->

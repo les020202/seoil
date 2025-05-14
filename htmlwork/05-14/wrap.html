@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 1px solid black;
+            font-size: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+        .box2{
+            /* 문제 : display를 flex와 flex-wrap을 wrap을 사용하지 않고 자동 줄바꿈 하는 방법? */
+            border: 1px solid red;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>abcdefghijklmnopqrstasdddddddddkjdflabcdefghijklmnopqrstasdddddddddkjdfl</span>
+        <span>213141412141241241241242142</span>
+        <span>abcdefghijklmnopqrstdkjdfl</span>
+        <span>213141412141241241241242142</span>
+        <span>abcdefghijklmnopqrstdkjdfl</span>
+        <span>213141412141241241241242142</span>
+        <span>abcdefghijklmnopqrstdkjdfl</span>
+        <span>213141412141241241241242142</span>
+    </div>
+
+    <div class="box2" style="font-size:100px">
+        fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    </div>
+</body>
+</html>
