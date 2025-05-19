@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PhoneBook</h1>
+    <script>
+        const urlParam=new URLSearchParams(location.search);
+        let id=urlParam.get("id");
+        const xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("get","list.json");
+        xmlhttp.send();
+        xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState===4 && xmlhttp.status===200){
+            var data=JSON.parse(xmlhttp.responseText);
+            let body=document.querySelector("body");//입력할 객체 얻기
+            data.forEach((obj)=>{
+                let fw=`<div>
+                <a href="${obj.id}plist.html"><img src="${obj.pic}"alt="${obj.pic}" width="150px"></a>
+                <ul>
+                <li><span>${obj.name}</span></li>
+                <li><span>${obj.hp}</span></li>
+                </ul>
+                </div>
+                <hr style="border: 1px solid black; width: 80%;">`;
+                body.innerHTML+=fw;
+            });
+            }
+        }
+    </script>
+    <style>
+        body{
+            width: 400px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border: 3px solid black;
+        }
+        h1{
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        div{
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            /* border-bottom: 1px solid black; */
+        }
+        ul{
+            padding: 20px 20px;
+            list-style-type: none;
+        }
+        span{
+            font-size: 22px;
+        }
+        img{
+            border-radius: 100%;
+            border: 1px solid black;
+        }
+    </style>
+</body>
+</html>

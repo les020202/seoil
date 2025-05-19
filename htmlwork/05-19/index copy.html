@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- <img src="person.png" alt="person.png">
+        <span>kim</span>
+        <span>010-1111-1111</span>   -->
+    </div>
+    <script>
+        //네트워크 상에서는 다 문자열
+        //1) data.json부터 데이터를 수신한다.
+        //데이터 통신 객체를 만들고(18), 페이지 요청하고(20) 보내고(21), 수신할 때 처리하고(22)
+        let xmlhttp=new XMLHttpRequest(); //데이터 통신 객체를 만듬
+        // console.log(xmlhttp);
+        xmlhttp.open("get","data.json"); //페이지 요청
+        xmlhttp.send(); //보냄
+        xmlhttp.onreadystatechange=function(){ //수신할 때 처리
+            console.log(xmlhttp.responseText);
+            console.log("type1:" + typeof xmlhttp.responseText); 
+            var data=JSON.parse(xmlhttp.responseText);  //xmlhttp.responseText 얘가 문자열, JSON.parse는 문자열을 객체로 만들어줌
+            console.log("type2:" + typeof data);
+
+            //2) 수신 데이터를 반복문을 사용하여 아래코드를 body에 입력한다.
+            let body=document.querySelector("body");//입력할 객체 얻기
+            data.forEach((obj)=>{
+                //console.log(obj);
+                let fw=`<div>
+                        <img src="${obj.pic}" alt="${obj.pic}" width="100px">
+                        <span>${obj.name}</span>
+                        <span>${obj.hp}</span>
+                        </div>`; 
+                        body.innerHTML+=fw;
+            });
+            console.log("type3:" + typeof JSON.stringify(data)); //JSON.stringfy는 객체를 다시 문자열로
+        }
+        
+        
+    </script>
+    <style>
+        div{
+            display: flex;
+        }
+    </style>
+</body>
+</html>

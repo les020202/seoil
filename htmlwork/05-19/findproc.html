@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log(location.href);
+        //const urlParam=new URLSearchParams(location.href);
+        const urlParam=new URLSearchParams(location.search);
+        console.log(urlParam);
+        // console.log(urlParam.get("id"));
+        let id=urlParam.get("id");
+        console.log(id); // url은 숫자가 아닌 문자열
+
+        const xmlhttp=new XMLHttpRequest(); //데이터 통신 객체를 만듬
+        xmlhttp.open("get","data2.json"); //페이지 요청
+        xmlhttp.send(); //보냄
+        xmlhttp.onreadystatechange=function(){ //수신할 때 처리, 상태가 변할 때 정의해놓은 함수 호출
+            if(xmlhttp.readyState===4 && xmlhttp.status===200){ //네트워크 상태 확인
+            console.log(xmlhttp.responseText);
+            // xmlhttp.responseText 객체로 변환하고 변환된 객체에서 요청id와 같은 객체를 찾아라
+            try{
+                var data2 = JSON.parse(xmlhttp.responseText); // 문자열 객체로 변환
+                data2.forEach(element => {
+                if(element.id===id){ // element.id===parseInt(id)  -> data2.json의 id에 숫자 적으면 parseInt 써야함
+                    // == : 자바 스크립트에서 같은 객체, === : 자바 스크립트에서 같은 값인지 확인
+                    console.log("element:"+element);
+                    console.log(element.id);
+                    console.log(element.pic);
+                    console.log(element.name);
+                    console.log(element.hp);
+                    return;
+                }
+            });
+            }catch(e){
+                console.log(e);
+            }
+
+            }
+        }
+
+        //쿠키를 사용하여 정보를 저장하는 방법
+        document.cookie = `id=${id}; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/`; //유효기간 설정, 해당 경로만 허락
+        //localStorage를 사용하여 정보를 저장하는 방법
+        localStorage.setItem("local_id",id);
+        //sessionStorage를 사용하여 정보를 저장하는 방법
+        sessionStorage.setItem("session_id",id)
+    </script>
+</head>
+<body>
+    <a href="findprocmove.html">다른 페이지로 이동</a>
+</body>
+</html>
