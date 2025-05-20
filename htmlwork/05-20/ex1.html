@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        tableadd.html을 활용해여 https://jsonplaceholder.typicode.com/posts 주소의 데이터를 
+        ajax통신을 이용하여 가져온 후 테이블에 해당 리스트를 작성하시오. 
+    -->
+    <div class="container">
+        <table>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+
+        let xhttp=new XMLHttpRequest();//객체만듬
+        console.log(xhttp);
+        xhttp.open("get","https://jsonplaceholder.typicode.com/posts");
+        xhttp.send();//보내고
+        xhttp.onload=function(){
+            const tbody=document.querySelector("tbody");
+            let posts=JSON.parse(xhttp.responseText);
+            for(let i=0;i<posts.length;i++){
+                let table=document.querySelector("table");
+                let tbody=document.querySelector("tbody");
+                let row=document.createElement("tr");
+                let cell1=document.createElement("td");
+                cell1.textContent=posts[i].id;
+                row.appendChild(cell1);
+                let cell2=document.createElement("td");
+                cell2.textContent="제목:"+posts[i].title;
+                let cell3=document.createElement("td");
+                cell3.textContent="내용:"+posts[i].body;
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                tbody.appendChild(row);
+                table.appendChild(row);
+            }
+        }
+    </script>
+</body>
+</html>

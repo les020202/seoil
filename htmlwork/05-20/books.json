@@ -1,0 +1,27 @@
+[
+    {
+        "title":"javascript 기초",
+        "authoer":"홍길동",
+        "price":"20000"
+    },
+    {
+        "title":"java 기초",
+        "authoer":"김길동",
+        "price":"21000"
+    },
+    {
+        "title":"html 기초",
+        "authoer":"류길동",
+        "price":"22000"
+    },
+    {
+        "title":"css 기초",
+        "authoer":"여길동",
+        "price":"23000"
+    },
+    {
+        "title":"pytion 기초",
+        "authoer":"이길동",
+        "price":"24000"
+    }
+]
