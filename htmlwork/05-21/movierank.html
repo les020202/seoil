@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function find(){
+            let year=document.getElementsById("year");
+            let month=document.getElementById("month");
+            let day=document.getElementById("day");
+
+            const xhttp=new XMLHttpRequest();
+            let method="get";
+            let apikey=""; //발급 받은 api키
+            let targetDt="20250520"; //정보 중에 어떤 변화값이 있을 경우 결과가 달라질 때 변수설정
+            console.log(targetDt);
+            let url=`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${apikey}&targetDt=${targetDt}`;
+            xhttp.open(method,url);
+            xhttp.send();
+            xhttp.onload=function(){
+            //console.log(xhttp.responseText);
+            let data=JSON.parse(xhttp.responseText);
+            // console.log(data["boxOfficeResult"]["dailyBoxOfficeList"][0]["movieNm"]);
+            // console.log(data.boxOfficeResult.dailyBoxOfficeList[0].movieNm);
+            let ul=document.getElementById("main");
+            for(i=0;i<10;i++){
+                let rank=data.boxOfficeResult.dailyBoxOfficeList[i].rank;
+                let rankInten = parseInt(data.boxOfficeResult.dailyBoxOfficeList[i].rankInten);
+                let movieNm=data.boxOfficeResult.dailyBoxOfficeList[i].movieNm;
+                let symbol = '';
+                if (rankInten > 0) {
+                    symbol = `▲${rankInten}`;
+                } else if (rankInten < 0) {
+                    symbol = `▼${Math.abs(rankInten)}`;
+                } else {
+                    symbol = '0';
+                }
+                let li=document.createElement("li");
+                li.innerHTML = `${rank} 위(<span>${symbol}</span>) : ${movieNm}`;
+                ul.appendChild(li);
+            }
+        }
+        }
+        
+    </script>
+    <style>
+        .title{
+            width: 200px;
+            height: 30px;
+            border: 1px solid green;
+            background-color: green;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        일별 박스 오피스      
+    </div>
+    <div class="find">
+        <input type="text" id="year"> 년
+        <select id="month">
+            <option value="1">1월</option>
+            <option value="2">2월</option>
+        </select>
+        <select id="day">
+            <option value="1">1일</option>
+            <option value="2">2일</option>
+        </select>
+        <button onclick="find()">확인</button>
+    </div>
+    <div>
+        <ul id="main">
+            
+        </ul>
+    </div>
+</body>
+</html>
