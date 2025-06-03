@@ -1,0 +1,458 @@
+Live Server : 실행 서버
+
+http://localhost:5500/a.html  or  127.0.0.1:5500/a.html   or  본인 컴 ip 주소:5500/a.html
+a.html은 파일명이 아니라 지시어?
+
+arp -a : 같은 네트워크내에 ip, mac 주소 확인
+
+웹서버에서 DB로 직접 접근이 안되니 웹애플리케이션인 JAVA로 접근(JDBC)
+Class.forName(driver)
+DriveManager.getConnection()
+URL, ID, Password 
+preparestatement
+
+<meta charset="UTF-8" />    :  글자 안 깨지게 해주는 설정
+<meta name="viewport" content="width=device-width, intial-scale=1.0" />  :  보는 크기에 따라 맞춰주는 설정
+
+html5 sementic 태그 : 웹 표준, <header><nav><section><article><aside> <footer><main>
+section 안에 article 있음
+웹 페이지는 좌~우, 위~아래 순서로 되있기에 웹 표준에 따라 만들어져 있어서 시각장애인도 컴퓨터 사용 가능
+
+<p style="color:red; font-size:50px; border:1px solid black">I am big</p>  ;으로 구분함
+
+<p id="my">I am big</p>
+<style>
+#my{
+color:red; 
+font-size:50px; 
+border:1px solid black;
+}
+id는 #을 쓰고 class는 .을 쓴다.
+
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+문장 들어쓰기 할때 사용
+</blockquote>
+
+<p>WWF's goal is to: <q>Build a future where people live in harmony with nature.</q></p>
+q는 "" 쓸 때 사용
+
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+abbr은 약어 사용할 때 사용
+
+action="inpput_proc.html? 속성=값&속성=값&속성=값
+& : 구분자
+method get 1페이지요청
+method post 숨김방식, 데이터 입력시 사용
+
+form :  요소는 사용자로부터 데이터를 입력받아 서버로 전송할 수 있도록 하는 구조를 제공합니다. 
+흔히 로그인, 회원가입, 검색창, 문의하기 등의 기능에서 사용됩니다.
+
+Figma에서 create conponent하고 복사해서 쓰면 원본을 바꾸면 복사본도 다 바뀐다.
+
+JSON : 자바 스크립트 객체 표기법, 데이터 표기하는 문자열
+
+window 밑에 document 밑에 location
+
+팀프로젝트 간에 페이지별로 style, javascript을 어떻게 개별적으로 작성할 것인가? webpack
+작성한 파일을 어떻게 한 곳에 모아서 서비스할 것인가? github
+
+
+##api가 지원하는 데이터 형식
+json, xml
+
+##ajax 통신의 이해
+
+##정규식의 이해
+
+
+rank rankInten movieNm OpenDt  audiCnt 
+boxOfficeResult.dailyBoxOfficeList[0].movieNm
+boxOfficeResult["dailyBoxOfficeList"][0]["movieNm"]
+
+
+cmd에 notepad test.js 입력후 밑에 내용 적고 
+node test.js 입력 후 브라우저에서 확인
+var http = require('http');
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.end('<html><head><body><h1>hello test</h1></body></head></html>');
+}).listen(8888);
+
+함수(함수정의) -> callback 함수
+함수(변수, callback함수)
+
+
+-------------------------------------------
+react 
+npm uninstall -g create-react-app.
+npx create-react-app my-react-app
+notepad package.json
+npm start
+
+#import의 사용법 정리
+import logo from './logo.svg';  => logo라는 문자가 변수역할 {logo}
+import './App.css';   =>  외부 파일을 가지고 와서 사용한다.(포함-css적용)
+import React from 'react';  or  import App from './App';  =>  객체사용
+객체를 사용할 경우 export default App(함수명)   =>   <App /> 사용가능
+
+리엑터 안의 서버와 비주얼 스튜디오는 달라서 비주얼 스튜디오에서 html을 키면 안되고 127.0.0.1:3000으로 들어가야 한다
+
+##react의 구조
+public/index.html
+src/index.css => 이 파일은 index.js에 import './index.css'로 포함되어 있음
+src/index.js => 기본 react 라이브러리, render()함수를 위한 실제 서비스파일이 들어가 있는 파일
+
+App.css, App.js 두파일은 쌍이며 두 파일 중 App.js 파일은 함수를 정의하고 정의된 함수를 태그로 사용하도록 export처리
+주의사항 : 함수의 return에 태그 사용시 " "은 사용하면 안됨
+
+위에서 정의된 파일을 index.js에서 import후 render()함수에 부품처럼 끼워 사용함.
+
+리엑터
+자바와 달리 생성자명이 클래스명과 다름
+class Car {
+  constructor(name) {
+    this.brand = name;
+  }
+}
+화살표 함수
+hello = () => {
+  return "Hello World!";
+}
+매개변수 있는 화살표 함수
+hello = (val) => "Hello " + val;
+배열에서 항목 목록을 생성
+const myArray = ['apple', 'banana', 'orange'];
+
+const myList = myArray.map((item) => <p>{item}</p>)
+변수에 배열 항목 할당
+const vehicles = ['mustang', 'f-150', 'expedition'];
+
+const [car, truck, suv] = vehicles;
+리엑터 모듈
+export const name = "Jesse"
+export const age = 40
+
+const message = () => {
+  const name = "Jesse";
+  const age = 40;
+  return name + ' is ' + age + 'years old.';
+};
+
+export default message;
+
+import { name, age } from "./person.js";
+
+import message from "./message.js";
+
+JSX는 JS에서 확장된거 
+const myElement = React.createElement('h1', {"name":"myh1"}, 'I do not use JSX!');
+			   	  태그 	    속성		    값
+여러개의 태그를 쓸때 사용
+const myElement = (
+  <>
+    <p>I am a paragraph.</p>
+    <p>I am a paragraph too.</p>
+  </>
+);
+{}안에서 연산 가능
+const myElement = <h1>{(x) < 10 ? "Hello" : "Goodbye"}</h1>;
+
+리엑터 컴포넌트
+클래스 구성 요소 생성
+class Car extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
+속성을 사용하여 Car 구성 요소에 색상을 전달하고 render() 함수에서 사용
+function Car(props) {
+  return <h2>I am a {props.color} Car!</h2>;
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Car color="red"/>);
+
+리엑터 클래스 state 객체 사용
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+class Car extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: "Ford",
+      model: "Mustang",
+      color: "red",
+      year: 1964
+    };
+  }
+  changeColor = () => {
+    this.setState({color: "blue"});
+  }
+  render() {
+    return (
+      <div>
+        <h1>My {this.state.brand}</h1>
+        <p>
+          It is a {this.state.color}
+          {this.state.model}
+          from {this.state.year}.
+        </p>
+        <button
+          type="button"
+          onClick={this.changeColor}
+        >Change color</button>
+      </div>
+    );
+  }
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Car />);
+
+리엑터 이벤트
+function Football() {
+  const shoot = () => {
+    alert("Great Shot!");
+  }
+
+  return (
+    <button onClick={shoot}>Take the shot!</button>
+  );
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Football />);
+
+리엑터 조건문
+function Goal(props) {
+  const isGoal = props.isGoal;
+  if (isGoal) {
+    return <MadeGoal/>;
+  }
+  return <MissedGoal/>;
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Goal isGoal={false} />);
+
+리엑터 라우터
+npm i -D react-router-dom    -> 리엑터 라우터 설치
+npm i -D react-router-dom@latest   ->  마지막 버전 설치
+
+index.js
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+src폴더 안에 pages 폴더 만들고 그 안에 Layout.js~NoPage.js까지 파일 생성
+
+Layout.js
+import { Outlet, Link } from "react-router-dom";
+
+const Layout = () => {
+  return (
+    <>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Outlet />
+    </>
+  )
+};
+export default Layout;
+
+Home.js
+const Home = () => {
+    return <h1>Home</h1>;
+  };
+  export default Home;
+
+Blogs.js
+const Blogs = () => {
+    return <h1>Blog Articles</h1>;
+  };
+  export default Blogs;
+
+Contact.js
+const Contact = () => {
+    return <h1>Contact Me</h1>;
+  };
+  export default Contact;
+
+NoPage.js
+const NoPage = () => {
+    return <h1>404</h1>;
+  }; 
+  export default NoPage;
+
+리엑터 메모
+index.js
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+
+//<App/>태그는 외부에 있는 함수를 가지고 와서 사용하는 태그
+//내부적으로 App을 작성
+function App(){
+    const [count, setCount] = useState(0);
+    //어떤 기능을 사용할 것인가?
+    //값을 증가시키는 기능
+    function increment(){
+        //값을 저장할 변수가 필요하고 이 변수를 App 내에 선언 const [count, setCount] = useState(0);
+        // setCount(count++); //오류발생
+        // setCount(c++); //오류발생
+        // setCount(c=c+1); //오류발생
+        setCount((c) => c + 1); //정상실행
+        // setCount(count + 1); //정상실행
+    }
+    return <>
+    <div>
+        Count: {count}
+        <button onClick={increment}>+</button>
+    </div>
+    </>
+ 
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+
+index.js
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+
+//<App/>태그는 외부에 있는 함수를 가지고 와서 사용하는 태그
+//내부적으로 App을 작성
+function App(){
+    //전달받은 데이터가 있다고 가정할 경우(배열형식)
+    //<Todos> 태그는 함수의 Todos(), todos={todos}는 속성=값으로서 함수의 입력값 Todos({ todos }) 뜻함
+    //map을 이용하여 반복처리
+    const [todos, setTodos] = useState(["todo 1", "todo 2", "todo 3"]);
+    return <>
+    <div>
+        <Todos todos={todos} />
+    </div>
+    </>
+}
+
+function Todos({ todos }){
+    return (
+        <>
+          {todos.map((todo, index) => {
+            return <p key={index}>{todo}</p>;
+          })}
+        </>
+      );
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+
+index.js
+//라이브러리 포함하기
+//import { useState } from "react";
+import ReactDOM from "react-dom/client";
+
+//어떤 상태가 변화되었을 때 실행하는 코드
+import React,{useState, useEffect} from "react";
+
+//사용할 기능을 함수로 만들기(상태변수선언, 상태변화실행함수(useEffect), 화면에 표시할 return 태그)
+function Counter(){
+    //상태변수선언
+    const [count, setCount]=useState(0);
+
+    //상태변화실행함수(useEffect)
+    useEffect(()=>{
+        console.log(`현재 카운터:${count}`);
+    }, [count]);
+
+    //화면에 표시할 return 태그 (<> </> or ( ) : 멀티라인가능)
+    return (//단일태그 써야함
+        <div>
+            <div>카운터:{count}</div>
+            <button onClick={()=>setCount(count+1)}>숫자 증가하기</button>
+        </div>
+    );
+}
+
+//메인실행코드
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Counter />);
+
+
+index.js
+import React,{useState, useEffect} from "react";
+import ReactDOM from "react-dom/client";
+
+function PhonebookList(){
+  //useEffect(); 호출될 때 데이터가 수신될 경우 이를 저장할 상태변수 미리 선언
+  const [contacts,setContacts]=useState([]);
+
+  //최초 호출이 한번 일어난다
+  useEffect(()=>{
+    console.log("호출!!")
+    const xhttp=new XMLHttpRequest();
+    xhttp.open("get","data.json");
+    xhttp.send();
+    xhttp.onload=function(){
+      let data=JSON.parse(xhttp.responseText);
+      setContacts(data);
+      console.log(contacts);
+    }
+  });
+
+  return <>
+  <div>
+  {contacts.map(contact => (
+      <ul style={{listStyle:'none', border:'1px solid black', padding:0}}>
+          <li>{contact.id}</li>
+          <li>{contact.name}</li>
+          <li>{contact.phone}</li>
+      </ul>
+    ))}
+  </div>
+  </>
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<PhonebookList />);
+
+
+
+객체는 속성과 함수로 구성되어 있다. 속성 = 값, 함수();
+window, window.document, window.location, window.history
+window.속성=값(사용방법), window.함수();
+
+<meta name="robots" content="index, follow"> <!-- 검색 엔진에 인덱싱을 허용 -->
+<meta name="author" content="사이트명"> <!-- 페이지 작성자 정보 -->
+<meta name="description" content="사이트의 간략한 설명을 입력하세요. 이 설명은 검색 결과에 표시됩니다.">
+<meta name="description" content="사이트의 간략한 설명을 입력하세요. 이 설명은 검색 결과에 표시됩니다.">
+
