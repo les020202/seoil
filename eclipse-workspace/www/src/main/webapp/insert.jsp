@@ -9,9 +9,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid mt-5">
 <form action="/insert" method="post">
-<h3 class="h3">전화번호부 입력</h3>
+<h3 class="h3 text-center pb-3">전화번호부 입력</h3>
 <div class="pb-3">
 <label class="form-label" for="name">이름</label>
 <input class="form-control" type="text" id="name" name="name" required>
